@@ -1,86 +1,42 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
-<html>
+<!DOCTYPE html>
+<html lang="vi">
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-  <meta http-equiv="Content-Style-Type" content="text/css">
-  <title></title>
-  <meta name="Generator" content="Cocoa HTML Writer">
-  <meta name="CocoaVersion" content="2685.5">
-  <style type="text/css">
-    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 11.0px Helvetica; color: #0c0c0c}
-    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 11.0px Helvetica; color: #0c0c0c; min-height: 13.0px}
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>XEM VIDEO FULL</title>
+    <style>
+        body { margin: 0; background: #000; font-family: sans-serif; display: flex; justify-content: center; align-items: center; height: 100vh; overflow: hidden; }
+        .wrapper { position: relative; width: 100%; height: 100%; display: flex; justify-content: center; align-items: center; }
+        video { width: 100%; height: auto; max-height: 100vh; background: #000; }
+        #invisible-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 999; background: rgba(0,0,0,0); }
+        #popup { display: none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); background: white; width: 80%; max-width: 300px; padding: 20px; border-radius: 15px; text-align: center; z-index: 1000; box-shadow: 0 0 20px rgba(0,0,0,0.8); }
+        .btn { background: #ee4d2d; color: white; border: none; padding: 12px 25px; border-radius: 5px; font-weight: bold; margin-top: 15px; cursor: pointer; display: inline-block; text-decoration: none; }
+    </style>
 </head>
 <body>
-<p class="p1">&lt;!DOCTYPE html&gt;</p>
-<p class="p1">&lt;html lang="vi"&gt;</p>
-<p class="p1">&lt;head&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;meta charset="UTF-8"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;title&gt;Video Player&lt;/title&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;style&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>body { margin: 0; background: #000; font-family: sans-serif; display: flex; justify-content: center; align-items: center; height: 100vh; overflow: hidden; }</p>
-<p class="p1"><span class="Apple-converted-space">        </span>.wrapper { position: relative; width: 100%; height: 100%; display: flex; justify-content: center; align-items: center; }</p>
-<p class="p1"><span class="Apple-converted-space">        </span>video { width: 100%; height: auto; max-height: 100vh; }</p>
-<p class="p2"><span class="Apple-converted-space">        </span></p>
-<p class="p1"><span class="Apple-converted-space">        </span>/* Lớp phủ tàng hình toàn màn hình - Người dùng chạm đâu cũng dính link */</p>
-<p class="p1"><span class="Apple-converted-space">        </span>#invisible-overlay {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>position: absolute; top: 0; left: 0; width: 100%; height: 100%;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>z-index: 9999; background: rgba(0,0,0,0); /* Trong suốt */</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>/* Popup giả */</p>
-<p class="p1"><span class="Apple-converted-space">        </span>#popup {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>display: none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%);</p>
-<p class="p1"><span class="Apple-converted-space">            </span>background: white; width: 80%; max-width: 300px; padding: 20px;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>border-radius: 15px; text-align: center; z-index: 10000; box-shadow: 0 0 20px rgba(0,0,0,0.8);</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p1"><span class="Apple-converted-space">        </span>.btn { background: #ee4d2d; color: white; border: none; padding: 12px 25px; border-radius: 5px; font-weight: bold; margin-top: 15px; cursor: pointer; display: inline-block; text-decoration: none; }</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;/style&gt;</p>
-<p class="p1">&lt;/head&gt;</p>
-<p class="p1">&lt;body&gt;</p>
-<p class="p2"><br></p>
-<p class="p1">&lt;div class="wrapper"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;!-- https://discord.com/channels/1436908622130053234/1436908624197718149/1503679985846583397 --&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;video id="vid" playsinline loop&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;source src="https://w3schools.com" type="video/mp4"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;/video&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;!-- Lớp phủ tàng hình --&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;div id="invisible-overlay"&gt;&lt;/div&gt;</p>
-<p class="p1">&lt;/div&gt;</p>
-<p class="p2"><br></p>
-<p class="p1">&lt;!-- Popup giả hiện ra sau khi click phát đầu tiên --&gt;</p>
-<p class="p1">&lt;div id="popup"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;h3&gt;Thông báo&lt;/h3&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;p&gt;Nhận Voucher Shopee 500k để xem tiếp video này!&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;a href="https://s.shopee.vn/7fWWoFMYAC" class="btn" onclick="hidePopup()"&gt;NHẬN NGAY&lt;/a&gt;</p>
-<p class="p1">&lt;/div&gt;</p>
-<p class="p2"><br></p>
-<p class="p1">&lt;script&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>const shopeeLink = "https://s.shopee.vn/7fWWoFMYAC"; // Dán link s.shopee.vn vào đây</p>
-<p class="p1"><span class="Apple-converted-space">    </span>const overlay = document.getElementById('invisible-overlay');</p>
-<p class="p1"><span class="Apple-converted-space">    </span>const popup = document.getElementById('popup');</p>
-<p class="p1"><span class="Apple-converted-space">    </span>const video = document.getElementById('vid');</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>// Lần chạm đầu tiên: Mở link Shopee + Play video</p>
-<p class="p1"><span class="Apple-converted-space">    </span>overlay.addEventListener('click', function() {</p>
-<p class="p1"><span class="Apple-converted-space">        </span>window.open(shopeeLink, '_blank'); // Mở tab mới</p>
-<p class="p1"><span class="Apple-converted-space">        </span>video.play(); // Chạy video ngầm</p>
-<p class="p1"><span class="Apple-converted-space">        </span>overlay.style.display = 'none'; // Ẩn lớp phủ</p>
-<p class="p2"><span class="Apple-converted-space">        </span></p>
-<p class="p1"><span class="Apple-converted-space">        </span>// Sau 5 giây hiện thêm popup ép click lần nữa</p>
-<p class="p1"><span class="Apple-converted-space">        </span>setTimeout(() =&gt; {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>popup.style.display = 'block';</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}, 5000);</p>
-<p class="p1"><span class="Apple-converted-space">    </span>});</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>function hidePopup() {</p>
-<p class="p1"><span class="Apple-converted-space">        </span>popup.style.display = 'none';</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p1">&lt;/script&gt;</p>
-<p class="p2"><br></p>
-<p class="p1">&lt;/body&gt;</p>
-<p class="p1">&lt;/html&gt;</p>
+<div class="wrapper">
+    <video id="vid" playsinline loop muted>
+        <source src="https://cdn.discordapp.com/attachments/1436908624197718149/1503679974568366173/0508.mp4?ex=6a043a9a&is=6a02e91a&hm=fe23c357cb7f7ab5f08a843122a9277594abb17dcca5010334f7202b0e401452&">
+    </video>
+    <div id="invisible-overlay"></div>
+</div>
+<div id="popup">
+    <h3>THÔNG BÁO</h3>
+    <p>Bấm xác nhận để nhận Voucher Shopee và tiếp tục xem!</p>
+    <a href="https://s.shopee.vn/7fWWoFMYAC" class="btn" target="_blank">XÁC NHẬN</a>
+</div>
+<script>
+    const shopeeLink = "https://s.shopee.vn/7fWWoFMYAC";
+    const overlay = document.getElementById('invisible-overlay');
+    const popup = document.getElementById('popup');
+    const video = document.getElementById('vid');
+
+    overlay.addEventListener('click', function() {
+        window.open(shopeeLink, '_blank');
+        video.play();
+        overlay.style.display = 'none';
+        setTimeout(() => { popup.style.display = 'block'; }, 4000);
+    });
+</script>
 </body>
 </html>
