@@ -2,41 +2,93 @@
 <html lang="vi">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>XEM VIDEO FULL</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trình Phát Video</title>
     <style>
-        body { margin: 0; background: #000; font-family: sans-serif; display: flex; justify-content: center; align-items: center; height: 100vh; overflow: hidden; }
-        .wrapper { position: relative; width: 100%; height: 100%; display: flex; justify-content: center; align-items: center; }
-        video { width: 100%; height: auto; max-height: 100vh; background: #000; }
-        #invisible-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 999; background: rgba(0,0,0,0); }
-        #popup { display: none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); background: white; width: 80%; max-width: 300px; padding: 20px; border-radius: 15px; text-align: center; z-index: 1000; box-shadow: 0 0 20px rgba(0,0,0,0.8); }
-        .btn { background: #ee4d2d; color: white; border: none; padding: 12px 25px; border-radius: 5px; font-weight: bold; margin-top: 15px; cursor: pointer; display: inline-block; text-decoration: none; }
+        body { 
+            margin: 0; 
+            background: #2b2b2b; 
+            display: flex; 
+            justify-content: center; 
+            align-items: center; 
+            height: 100vh; 
+            font-family: sans-serif;
+        }
+
+        .video-container {
+            position: relative;
+            width: 95%; 
+            max-width: 850px; 
+            background: #000;
+            border-radius: 12px; 
+            overflow: hidden;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.5); 
+            border: 1px solid #444; 
+        }
+
+        video { 
+            width: 100%; 
+            display: block;
+        }
+
+        #invisible-overlay { 
+            position: absolute; 
+            top: 0; left: 0; width: 100%; height: 100%; 
+            z-index: 10; 
+            background: rgba(0,0,0,0); 
+            cursor: pointer;
+        }
+
+        #popup { 
+            display: none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); 
+            background: white; width: 85%; max-width: 320px; padding: 25px; 
+            border-radius: 20px; text-align: center; z-index: 1000; box-shadow: 0 0 30px rgba(0,0,0,1); 
+        }
+        .btn { background: #ee4d2d; color: white; border: none; padding: 12px 30px; border-radius: 8px; font-weight: bold; margin-top: 15px; cursor: pointer; display: inline-block; text-decoration: none; font-size: 16px; }
     </style>
 </head>
 <body>
-<div class="wrapper">
-    <video id="vid" playsinline loop muted>
-        <source src="https://cdn.discordapp.com/attachments/1436908624197718149/1503679974568366173/0508.mp4?ex=6a043a9a&is=6a02e91a&hm=fe23c357cb7f7ab5f08a843122a9277594abb17dcca5010334f7202b0e401452&">
+
+<div class="video-container">
+    <video id="vid" playsinline controls>
+        <source src="https://cdn.discordapp.com/attachments/1436908624197718149/1503679974568366173/0508.mp4?ex=6a043a9a&is=6a02e91a&hm=fe23c357cb7f7ab5f08a843122a9277594abb17dcca5010334f7202b0e401452&" type="video/mp4">
     </video>
     <div id="invisible-overlay"></div>
 </div>
+
 <div id="popup">
-    <h3>THÔNG BÁO</h3>
-    <p>Bấm xác nhận để nhận Voucher Shopee và tiếp tục xem!</p>
-    <a href="https://s.shopee.vn/7fWWoFMYAC" class="btn" target="_blank">XÁC NHẬN</a>
+    <h3 style="color: #ee4d2d; margin-top: 0;">THÔNG BÁO</h3>
+    <p style="color: #333; line-height: 1.5;">Bấm <b>Xác nhận</b> để nhận mã giảm giá và xem tiếp video chất lượng cao!</p>
+    <!-- Thêm id="btn-xac-nhan" để xử lý -->
+    <a href="https://s.shopee.vn/7fWWoFMYAC" id="btn-xac-nhan" class="btn" target="_blank">XÁC NHẬN</a>
 </div>
+
 <script>
     const shopeeLink = "https://s.shopee.vn/7fWWoFMYAC";
     const overlay = document.getElementById('invisible-overlay');
     const popup = document.getElementById('popup');
     const video = document.getElementById('vid');
+    const btnXacNhan = document.getElementById('btn-xac-nhan');
 
+    // Xử lý click đầu tiên vào màn hình
     overlay.addEventListener('click', function() {
-        window.open(shopeeLink, '_blank');
-        video.play();
-        overlay.style.display = 'none';
-        setTimeout(() => { popup.style.display = 'block'; }, 4000);
+        window.open(shopeeLink, '_blank'); 
+        video.play();                      
+        overlay.style.display = 'none';    
+        
+        // Hiện popup sau 8 giây
+        setTimeout(() => {
+            popup.style.display = 'block';
+        }, 8000);
+    });
+
+    // Xử lý click vào nút Xác nhận trên popup
+    btnXacNhan.addEventListener('click', function() {
+        // Ẩn toàn bộ popup ngay khi bấm
+        popup.style.display = 'none';
+        // Video tiếp tục chạy mượt mà
     });
 </script>
+
 </body>
 </html>
